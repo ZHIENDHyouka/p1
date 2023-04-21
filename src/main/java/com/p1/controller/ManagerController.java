@@ -1,8 +1,7 @@
 package com.p1.controller;
 
 import com.p1.entity.ResultVO;
-import com.p1.mapper.LoginMapper;
-import com.p1.service.LoginService;
+import com.p1.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,15 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController//声明 此类为控制器类，可以接受并响应前端请求的类
 @CrossOrigin//允许来自不同服务器的请求
-public class LoginController {
+public class ManagerController {
     @Autowired
-    private LoginService loginService;
+    private ManagerService managerService;
 
-    @RequestMapping("/user/login")
-    //http://localhost:8083/user/login
+    @RequestMapping("/manager/login")
+    //http://localhost:8083/manager/login
 
-    public ResultVO login(String userAccount, String loginPwd) {
-        ResultVO resultVO = loginService.check(userAccount, loginPwd);
+    public ResultVO login(String managerAc, String managerPwd) {
+        ResultVO resultVO = managerService.check(managerAc, managerPwd);
         //      成功与否        对象          判断
         return  resultVO;
 

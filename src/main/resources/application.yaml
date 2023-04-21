@@ -7,20 +7,20 @@ server:
       force: true
 spring:
   datasource:
-    #    йЩ╬щ©БеДжц
+    #    О©╫О©╫О©╫щ©О©╫О©╫О©╫О©╫О©╫
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/xx?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&rewriteBatchedStatements=true
+    url: jdbc:mysql://192.168.3.102:3306/panlll?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&rewriteBatchedStatements=true
     username: root
     password: root
-    #    а╛╫сЁьеДжц
+    #    О©╫О©╫О©╫сЁО©╫О©╫О©╫О©╫О©╫
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
-      maximum-pool-size: 1000 #вН╢Са╛╫сйЩ,д╛хож╣10.
-      minimum-idle: 200 #вНп║©уопа╛╫сё╛д╛хож╣10.
-      connection-timeout: 60000 #а╛╫сЁ╛й╠й╠╪Д(╨ацК),д╛хож╣30цК.
-      #©уопа╛╫сЁ╛й╠й╠╪Дё╛д╛хож╣600000(10╥жжс),ж╩сп©уопа╛╫сйЩ╢СсзвН╢Са╛╫сйЩгр©уопй╠╪ДЁ╛╧Щ╦цж╣ё╛╡е╩А╠╩йм╥е
-      #хГ╧Ш╢Ссз╣хсз max-lifetime гр max-lifetime>0,тР╩А╠╩жьжцн╙0.
+      maximum-pool-size: 1000 #О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫,д╛О©╫О©╫ж╣10.
+      minimum-idle: 200 #О©╫О©╫п║О©╫О©╫О©╫О©╫О©╫О©╫О©╫сёО©╫д╛О©╫О©╫ж╣10.
+      connection-timeout: 60000 #О©╫О©╫О©╫сЁО©╫й╠й╠О©╫О©╫(О©╫О©╫О©╫О©╫),д╛О©╫О©╫ж╣30О©╫О©╫.
+      #О©╫О©╫О©╫О©╫О©╫О©╫О©╫сЁО©╫й╠й╠О©╫Дё╛д╛О©╫О©╫ж╣600000(10О©╫О©╫О©╫О©╫),ж╩О©╫п©О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫р©О©╫О©╫О©╫й╠О©╫ДЁ╛О©╫О©╫О©╫О©╫ж╣О©╫О©╫О©╫е╩А╠╩О©╫м╥О©╫
+      #О©╫О©╫О©╫О©╫О©╫О©╫з╣О©╫О©╫О©╫ max-lifetime О©╫О©╫ max-lifetime>0,О©╫О©╫А╠╩О©╫О©╫О©╫О©╫н╙0.
       idle-timeout: 600000
-      max-lifetime: 3000000 #а╛╫свН╢С╢Ф╩Нй╠╪Д,д╛хож╣30╥жжс.иХжцс╕╦ц╠хmysqlиХжц╣дЁ╛й╠й╠╪Д╤л
+      max-lifetime: 3000000 #О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫й╠О©╫О©╫,д╛О©╫О©╫ж╣30О©╫О©╫О©╫О©╫.О©╫О©╫О©╫О©╫с╕О©╫ц╠О©╫mysqlО©╫О©╫О©╫ц╣дЁО©╫й╠й╠О©╫О©╫О©╫
 
 

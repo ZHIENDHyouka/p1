@@ -3,4 +3,19 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.p1.mapper.LoginMapper">
+    <resultMap id="userMap" type="com.p1.entity.User">
+        <id column="id" property="userId"></id>
+        <result column="username" property="userName"></result>
+        <result column="account" property="userAccount"></result>
+        <result column="password" property="userPwd"></result>
+        <result column="sex" property="userSex"></result>
+        <result column="vip_levl" property="userVipLevel"></result>
+    </resultMap>
+    
+    <select id="selectByac" resultMap="userMap">
+         select * from user where account = #{userAccount}
+
+
+
+    </select>
 </mapper>
