@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.p1.mapper.MovieMapper">
+
+
+    <resultMap id="movieMap" type="com.p1.entity.Movie">
+        <id column="m_id" property="movieId"></id>
+        <result column="m_name" property="movieName"></result>
+        <result column="live_date" property="movieLiveDate"></result>
+        <result column="score" property="movieScore"></result>
+        <result column="concern_amount" property="movieCA"></result>
+        <result column="description" property="movieDesc"></result>
+        <result column="m_type" property="movieType"></result>
+        <result column="language" property="movieLanguage"></result>
+        <result column="m_time" property="movieTime"></result>
+    </resultMap>
+
+
+
+
+    <select id="selectMovieList" resultMap="movieMap">
+        select*from movie_info
+
+
+    </select>
+
+    <insert id="insertMovie">
+        insert into movie_info(
+            m_name,
+            live_date,
+            description,
+            m_type,
+            language,
+            m_time
+
+        )values (
+                    #{movieName},
+                    #{movieLiveDate},
+                    #{movieDesc},
+                    #{movieType},
+                    #{movieLanguage},
+                    #{movieTime}
+
+                )
+
+    </insert>
+    <select id="selectCount" resultType="int">
+        select count(1) from movie_info
+
+    </select>
+
+
+</mapper>

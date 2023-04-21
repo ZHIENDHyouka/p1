@@ -15,32 +15,4 @@
 
     </select>
 
-    <insert id="insertMovie">
-        insert into movie_info(
-            m_id,
-            m_name,
-            live_date,
-            score,
-            concern_amount,
-            description,
-            m_type,
-            language,
-            m_time
-
-        )values (
-                    #{movieId},
-                    #{movieName},
-                    #{movieLiveDate},
-                    #{movieScore}
-                    #{movieCA}
-                    #{movieDesc    }
-                    #{movieType    }
-                    #{movieLanguage}
-                    #{movieTime    }
-                    #{}
-                    #{}
-                )
-
-    </insert>
-
 </mapper>

@@ -7,4 +7,5 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface LoginMapper {
     public User selectByac( String account);
+
 }
