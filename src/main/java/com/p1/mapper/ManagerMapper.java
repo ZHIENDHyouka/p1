@@ -8,6 +8,6 @@ import java.util.List;
 
 @Mapper
 public interface ManagerMapper {
-    public Manager selectByac(String account);
+
 
 }

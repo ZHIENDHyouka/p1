@@ -10,18 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController//声明 此类为控制器类，可以接受并响应前端请求的类
+@RequestMapping("/manager")
 public class ManagerController {
     @Autowired
     private ManagerService managerService;
 
-    @RequestMapping("/manager/login")
-    //http://localhost:8083/manager/login
 
-    public ResultVO login(String managerAc, String managerPwd) {
-        ResultVO resultVO = managerService.check(managerAc, managerPwd);
-        //      成功与否        对象          判断
-        return  resultVO;
-
-    }
 
 }

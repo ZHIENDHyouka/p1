@@ -14,12 +14,22 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @PostMapping("/login")
+    @PostMapping("/user")
     //http://localhost:8083/user/login
     public ResultVO login(@RequestBody User user) {
         String userAccount = user.getUserAccount();
         String loginPwd = user.getUserPwd();
-        ResultVO resultVO = loginService.check(userAccount, loginPwd);
+        ResultVO resultVO = loginService.userCheck(userAccount, loginPwd);
+        //      成功与否        对象          判断
+        return  resultVO;
+
+    }
+
+    @RequestMapping("/manager")
+    //http://localhost:8083/manager/login
+
+    public ResultVO login(String managerAc, String managerPwd) {
+        ResultVO resultVO = loginService.managerCheck(managerAc, managerPwd);
         //      成功与否        对象          判断
         return  resultVO;
 

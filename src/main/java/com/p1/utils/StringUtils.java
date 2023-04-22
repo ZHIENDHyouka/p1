@@ -36,7 +36,6 @@ public class StringUtils {
      */
     public static <T> T formatObjString(T o){
         Class<?> aClass = o.getClass();
-
         Field[] fields = aClass.getDeclaredFields(); //获取类所有属性数组
         try {
             for (int i = 0; i < fields.length; i++) {
