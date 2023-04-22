@@ -11,6 +11,12 @@ import org.springframework.stereotype.Service;
 public class UserSerivce {
     @Autowired
     private UserMapper userMapper;
+
+    /**
+     * 用户注册
+     * @param user
+     * @return
+     */
     public ResultVO saveUser(User user){
         try {
             String md5Password = Md5Utils.getMd5(user.getUserPwd());

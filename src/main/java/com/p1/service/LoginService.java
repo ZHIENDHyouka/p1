@@ -33,7 +33,6 @@ public class LoginService {
             userPwd = Md5Utils.getMd5(userPwd);
             if (userPwd.equals(pwd)) {
                 return new ResultVO(0, "登陆成功", null);
-
             } else {
                 return new ResultVO(1, "密码错误", null);
             }
