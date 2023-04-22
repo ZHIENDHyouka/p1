@@ -12,6 +12,6 @@ import lombok.ToString;
 
 public class Manager {
     private Integer managerId;
-    private  String managerAc;
-    private  String managerPwd;
+    private String managerAc;
+    private String managerPwd;
 }

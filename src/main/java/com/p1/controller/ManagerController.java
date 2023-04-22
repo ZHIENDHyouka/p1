@@ -15,6 +15,12 @@ public class ManagerController {
     @Autowired
     private ManagerService managerService;
 
+    @RequestMapping("/list")
+    //http://localhost:8083/manager/list
+    public ResultVO list() {
+        ResultVO resultVO = managerService.getAllUser();
+        return resultVO;
+    }
 
 
 }

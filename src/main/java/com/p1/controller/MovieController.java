@@ -14,19 +14,21 @@ import org.springframework.web.bind.annotation.RestController;
 public class MovieController {
     @Autowired
     private MovieService movieService;
+
     //http://localhost:8083/movie/add
     @RequestMapping("/add")
-    public ResultVO add (Movie movie){
+    public ResultVO add(Movie movie) {
         ResultVO resultVO = movieService.addMovie(movie);
         //      成功与否        对象          判断
-        return  resultVO;
+        return resultVO;
 
     }
+
     //http://localhost:8083/movie/list
     @RequestMapping("/list")
-    public ResultVO list(){
-        ResultVO resultVO =movieService.getMovie();
-        return  resultVO;
+    public ResultVO list() {
+        ResultVO resultVO = movieService.getMovie();
+        return resultVO;
     }
 
 }

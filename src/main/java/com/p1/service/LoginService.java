@@ -42,7 +42,7 @@ public class LoginService {
     public ResultVO managerCheck(String managerAc, String managerPwd) {
         String pwd = null;
         //根据管理员id查询管理员信息
-        Manager manager= loginMapper.selectManagerByac(managerAc);
+        Manager manager = loginMapper.selectManagerByac(managerAc);
         pwd = manager == null ? null : manager.getManagerPwd();
         if (pwd == null) {// 账号为空时，密码为空。查询失败
             return new ResultVO(1, "账号错误", null);

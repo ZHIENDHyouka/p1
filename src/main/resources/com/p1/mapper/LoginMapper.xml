@@ -18,12 +18,15 @@
     </resultMap>
 
     <select id="selectManagerByac" resultMap="managerMap">
-        select * from manager where manager_account = #{managerAc}
+        select *
+        from manager
+        where manager_account = #{managerAc}
 
     </select>
     <select id="selectUserByac" resultMap="userMap">
-         select * from user where account = #{userAccount}
-
+        select *
+        from user
+        where account = #{userAccount}
 
 
     </select>

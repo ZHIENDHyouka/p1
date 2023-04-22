@@ -7,7 +7,8 @@ import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface LoginMapper {
-    public User selectUserByac( String account);
+    public User selectUserByac(String account);
+
     public Manager selectManagerByac(String account);
 
 }

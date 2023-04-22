@@ -24,13 +24,35 @@ public class UserController {
         ResultVO resultVO = userSerivce.saveUser(user);
         return resultVO;
     }
+
     //http://localhost:8083/user/movieList
     @RequestMapping("/movieList")
-    public ResultVO list(){
-        ResultVO resultVO =movieService.getMovie();
-        return  resultVO;
+    public ResultVO list() {
+        ResultVO resultVO = movieService.getMovie();
+        return resultVO;
     }
 
+    //http://localhost:8083/user/changeName
+    @RequestMapping("/changeName")
+    public ResultVO changeName(int userId, String userName) {
+        ResultVO resultVO = userSerivce.changeUserName(userId, userName);
+        return resultVO;
+//http://localhost:8083/user/changePwd
+    }
+
+    @RequestMapping("/changePwd")
+    public ResultVO changePwd(int userId, String userPwd) {
+        ResultVO resultVO = userSerivce.changeUserPwd(userId, userPwd);
+        return resultVO;
+//http://localhost:8083/user/self
+    }
+
+    @RequestMapping("/self")
+    public ResultVO self(int userId) {
+        ResultVO resultVO = userSerivce.getByUserId(userId);
+        return resultVO;
+
+    }
 
 
 }

@@ -15,39 +15,42 @@
         <result column="m_type" property="movieType"></result>
         <result column="language" property="movieLanguage"></result>
         <result column="m_time" property="movieTime"></result>
+        <result column="sale" property="movieOnSale"></result>
+
     </resultMap>
 
 
-
-
     <select id="selectMovieList" resultMap="movieMap">
-        select*from movie_info
+        select*
+        from movie_info
+    </select>
 
-
+    <select id="selectById" resultMap="movieMap">
+        select *
+        from movie_info
+        where m_name = #{movieName}
     </select>
 
     <insert id="insertMovie">
-        insert into movie_info(
-            m_name,
-            live_date,
-            description,
-            m_type,
-            language,
-            m_time
-
-        )values (
-                    #{movieName},
-                    #{movieLiveDate},
-                    #{movieDesc},
-                    #{movieType},
-                    #{movieLanguage},
-                    #{movieTime}
-
-                )
+        insert into movie_info(m_name,
+                               live_date,
+                               description,
+                               m_type,
+                               language,
+                               m_time,
+                               sale)
+        values (#{movieName},
+                #{movieLiveDate},
+                #{movieDesc},
+                #{movieType},
+                #{movieLanguage},
+                #{movieTime},
+                #{movieOnSale})
 
     </insert>
     <select id="selectCount" resultType="int">
-        select count(1) from movie_info
+        select count(1)
+        from movie_info
 
     </select>
 

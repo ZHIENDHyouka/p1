@@ -15,24 +15,23 @@ public class LoginController {
     @Autowired
     private LoginService loginService;
 
-    @RequestMapping (value = "/user"  ,method=RequestMethod.POST)
-    //http://localhost:8083/user/login
+    @RequestMapping(value = "/user", method = RequestMethod.POST)
     public ResultVO login(@RequestBody User user) {
         String userAccount = user.getUserAccount();
         String loginPwd = user.getUserPwd();
         ResultVO resultVO = loginService.userCheck(userAccount, loginPwd);
         //      成功与否        对象          判断
-        return  resultVO;
+        return resultVO;
 
     }
 
-    @RequestMapping(value="/manager",method=RequestMethod.POST)
+    @RequestMapping(value = "/manager", method = RequestMethod.POST)
     //http://localhost:8083/manager/login
 
     public ResultVO login(String managerAc, String managerPwd) {
         ResultVO resultVO = loginService.managerCheck(managerAc, managerPwd);
         //      成功与否        对象          判断
-        return  resultVO;
+        return resultVO;
 
     }
 }
