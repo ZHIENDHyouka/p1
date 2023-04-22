@@ -2,6 +2,7 @@ package com.p1.mapper;
 
 import com.p1.entity.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -9,9 +10,9 @@ import java.util.List;
 public interface UserMapper {
     public int insertUser(User user);
 
-    public int updateUserName(int userId, String userName);
+    public int updateUserName(@Param("userId") int userId, @Param("userName")String userName);
 
-    public int updateUserPwd(int userId, String userPwd);
+    public int updateUserPwd(@Param("userId") int userId,  @Param("userName") String userPwd);
 
     public  User selectByUserId(int userId);
 

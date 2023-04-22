@@ -44,12 +44,19 @@ public class UserController {
     public ResultVO changePwd(int userId, String userPwd) {
         ResultVO resultVO = userSerivce.changeUserPwd(userId, userPwd);
         return resultVO;
-//http://localhost:8083/user/self
-    }
 
+    }
+    //http://localhost:8083/user/self
     @RequestMapping("/self")
     public ResultVO self(int userId) {
         ResultVO resultVO = userSerivce.getByUserId(userId);
+        return resultVO;
+
+    }
+    //http://localhost:8083/user/plusScore
+    @RequestMapping("/plusScore")
+    public ResultVO plusScore(String movieName,double movieScore){
+        ResultVO resultVO = movieService.setscore(movieName,movieScore);
         return resultVO;
 
     }

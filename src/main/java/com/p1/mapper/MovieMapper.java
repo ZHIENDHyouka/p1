@@ -2,6 +2,7 @@ package com.p1.mapper;
 
 import com.p1.entity.Movie;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ public interface MovieMapper {
     public int selectCount();
 
     public Movie selectByName(String movieName);
-    public int  selectScoreCount(String movieName);
+   // public int  selectScoreCount(String movieName);
+    public int scoring(@Param("movieName") String movieName,@Param("movieScore") double movieScore);
 
 }

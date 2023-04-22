@@ -16,7 +16,7 @@
         <result column="language" property="movieLanguage"></result>
         <result column="m_time" property="movieTime"></result>
         <result column="sale" property="movieOnSale"></result>
-        <result column="score_count" property="movieSC"></result>
+<!--        <result column="score_count" property="movieSC"></result>-->
 
     </resultMap>
 
@@ -55,16 +55,15 @@
 
     </select>
     <update id="scoring">
-<set>
-    score=score
-
-</set>
-
+        update movie_info
+        set score=#{movieScore}
+        where m_name = #{movieName}
     </update>
+
     <select id="selectScoreCount" resultType="int">
         select score_count
         from movie_info
-where m_name=#{movieName}
+        where m_name = #{movieName}
 
     </select>
 

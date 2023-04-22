@@ -6,6 +6,7 @@ import com.p1.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController//声明 此类为控制器类，可以接受并响应前端请求的类
@@ -32,16 +33,16 @@ public class MovieController {
     }
     //http://localhost:8083/movie/get
     @RequestMapping("/get")
-    public ResultVO get(String movieName) {
+    public ResultVO get( String movieName) {
         ResultVO resultVO = movieService.getByName(movieName);
         return resultVO;
     }
     //http://localhost:8083/movie/getSC
-    @RequestMapping("/getSC")
-    public ResultVO getSC(String movieName){
-        ResultVO resultVO = movieService.getScoreCount(movieName);
-        return resultVO;
-    }
+//    @RequestMapping("/getSC")
+//    public ResultVO getSC(String movieName){
+//        ResultVO resultVO = movieService.getScoreCount(movieName);
+//        return resultVO;
+//    }
 
 
 }

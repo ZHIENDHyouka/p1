@@ -12,12 +12,13 @@ import java.util.List;
 
 @Service
 public class MovieService {
+    double sc=0.0;
+    int co=0;
     @Autowired
     private MovieMapper movieMapper;
 
     public ResultVO addMovie(Movie movie) {
         try {
-
             movieMapper.insertMovie(movie);
             return new ResultVO(0, "添加电影成功", null);
         } catch (Exception e) {
@@ -36,14 +37,42 @@ public class MovieService {
 
     public ResultVO getByName(String movieName) {
         Movie movie = movieMapper.selectByName(movieName);
-//       ArrayList<Movie> movies = new ArrayList<>();
-//        movies.add(movie);
-        ResultVO resultVO = new ResultVO(0, "成功", movie);
+        ResultVO resultVO = new ResultVO(0, "成功",movie);
         return resultVO;
     }
-    public ResultVO getScoreCount(String movieName){
-        int ScoreCount = movieMapper.selectScoreCount(movieName);
-        return new ResultVO(0,"成功",ScoreCount);
+//    public ResultVO getScore(String movieName,double movieScore){
+//
+//        try {
+//            movieMapper.s;
+//            return new ResultVO(0, "添加电影成功", null);
+//        } catch (Exception e) {
+//            return new ResultVO(1, "添加电影失败", null);
+//        }
+//
+//
+//    }
+
+
+    public ResultVO setscore(String movieName,double movieScore){
+        co++;
+        sc+=movieScore;
+        movieScore=sc/co;
+        int sco = movieMapper.scoring(movieName,movieScore);
+
+//        try {
+//            movieMapper.scoring(movieName,movieScore);
+//            return new ResultVO(0, "成功", null);
+//        } catch (Exception e) {
+//            return new ResultVO(1, "失败", null);
+//        }
+        if(sco>0){
+           return new ResultVO(0,"成功",null);
+       }else {
+           return new ResultVO(1,"失败",null);
+      }
+
+
+
     }
 }
 

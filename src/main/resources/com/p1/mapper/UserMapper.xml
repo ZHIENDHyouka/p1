@@ -53,6 +53,7 @@
         select *
         from user;
     </select>
+
     <select id="selectCount" resultType="int">
         select count(1)
         from user

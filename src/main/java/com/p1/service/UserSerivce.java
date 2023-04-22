@@ -39,9 +39,8 @@ public class UserSerivce {
     ResultVO r1=new ResultVO(1,"失败",null);
     public ResultVO getByUserId(int userId){
         User user =userMapper.selectByUserId(userId);
-        ArrayList<User> users = new ArrayList<>();
-        users.add(user);
-        ResultVO resultVO =new ResultVO(0,"成功",users);
+
+        ResultVO resultVO =new ResultVO(0,"成功",user);
 
         return resultVO;
     }
@@ -70,12 +69,9 @@ public class UserSerivce {
            return new ResultVO(1, "密码不能相同", null);
        }else{
            try {
-
-
               userMapper.updateUserPwd(userId,md5Password);
                return r0;
            } catch (Exception e) {
-
                return  r1;
            }
 //  int i =userMapper.updateUserName(userId,userName);

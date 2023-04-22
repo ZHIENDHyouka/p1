@@ -20,6 +20,6 @@ public class Movie {
     private String movieLanguage;
     private Integer movieTime;//电影时长
     private int movieOnSale;
-    private int movieSC;
+    public double socrecum;
 
 }
