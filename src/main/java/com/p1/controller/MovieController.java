@@ -30,5 +30,18 @@ public class MovieController {
         ResultVO resultVO = movieService.getMovie();
         return resultVO;
     }
+    //http://localhost:8083/movie/get
+    @RequestMapping("/get")
+    public ResultVO get(String movieName) {
+        ResultVO resultVO = movieService.getByName(movieName);
+        return resultVO;
+    }
+    //http://localhost:8083/movie/getSC
+    @RequestMapping("/getSC")
+    public ResultVO getSC(String movieName){
+        ResultVO resultVO = movieService.getScoreCount(movieName);
+        return resultVO;
+    }
+
 
 }

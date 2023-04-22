@@ -13,7 +13,7 @@ public interface UserMapper {
 
     public int updateUserPwd(int userId, String userPwd);
 
-    public User selectByUserId(int userId);
+    public  User selectByUserId(int userId);
 
     public List<User> selectAllUser();
 

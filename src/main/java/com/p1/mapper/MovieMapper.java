@@ -13,6 +13,7 @@ public interface MovieMapper {
 
     public int selectCount();
 
-    public Movie selectById(int movieId);
+    public Movie selectByName(String movieName);
+    public int  selectScoreCount(String movieName);
 
 }

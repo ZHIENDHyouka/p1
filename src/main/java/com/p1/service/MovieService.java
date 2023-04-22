@@ -34,12 +34,16 @@ public class MovieService {
         return resultVO;
     }
 
-    public ResultVO getById(int movieId) {
-        Movie movie = movieMapper.selectById(movieId);
-        ArrayList<Movie> movies = new ArrayList<>();
-        movies.add(movie);
+    public ResultVO getByName(String movieName) {
+        Movie movie = movieMapper.selectByName(movieName);
+//       ArrayList<Movie> movies = new ArrayList<>();
+//        movies.add(movie);
         ResultVO resultVO = new ResultVO(0, "成功", movie);
         return resultVO;
+    }
+    public ResultVO getScoreCount(String movieName){
+        int ScoreCount = movieMapper.selectScoreCount(movieName);
+        return new ResultVO(0,"成功",ScoreCount);
     }
 }
 
