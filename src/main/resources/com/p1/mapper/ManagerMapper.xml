@@ -8,39 +8,8 @@
         <id column="manager_id" property="managerId"></id>
         <result column="manager_account" property="managerAc"></result>
         <result column="manager_password" property="managerPwd"></result>
+
     </resultMap>
 
-    <select id="selectByac" resultMap="managerMap">
-        select * from manager where manager_account = #{managerAc}
-
-    </select>
-
-<!--    <insert id="insertMovie">-->
-<!--        insert into movie_info(-->
-<!--            m_id,-->
-<!--            m_name,-->
-<!--            live_date,-->
-<!--            score,-->
-<!--            concern_amount,-->
-<!--            description,-->
-<!--            m_type,-->
-<!--            language,-->
-<!--            m_time-->
-
-<!--        )values (-->
-<!--                    #{movieId},-->
-<!--                    #{movieName},-->
-<!--                    #{movieLiveDate},-->
-<!--                    #{movieScore}-->
-<!--                    #{movieCA}-->
-<!--                    #{movieDesc    }-->
-<!--                    #{movieType    }-->
-<!--                    #{movieLanguage}-->
-<!--                    #{movieTime    }-->
-<!--                    #{}-->
-<!--                    #{}-->
-<!--                )-->
-
-<!--    </insert>-->
 
 </mapper>

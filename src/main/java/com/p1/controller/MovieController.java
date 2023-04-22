@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController//声明 此类为控制器类，可以接受并响应前端请求的类
 @CrossOrigin//允许来自不同服务器的请求
+@RequestMapping("/movie")
 public class MovieController {
     @Autowired
     private MovieService movieService;
     //http://localhost:8083/movie/add
-    @RequestMapping("/movie/add")
+    @RequestMapping("/add")
     public ResultVO add (Movie movie){
         ResultVO resultVO = movieService.addMovie(movie);
         //      成功与否        对象          判断
@@ -22,7 +23,7 @@ public class MovieController {
 
     }
     //http://localhost:8083/movie/list
-    @RequestMapping("/movie/list")
+    @RequestMapping("/list")
     public ResultVO list(){
         ResultVO resultVO =movieService.getMovie();
         return  resultVO;

@@ -25,7 +25,7 @@ public class UserController {
         return resultVO;
     }
     //http://localhost:8083/user/movieList
-    @RequestMapping("/user/movieList")
+    @RequestMapping("/movieList")
     public ResultVO list(){
         ResultVO resultVO =movieService.getMovie();
         return  resultVO;

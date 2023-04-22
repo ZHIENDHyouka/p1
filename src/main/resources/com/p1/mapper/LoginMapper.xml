@@ -11,8 +11,17 @@
         <result column="sex" property="userSex"></result>
         <result column="vip_levl" property="userVipLevel"></result>
     </resultMap>
-    
-    <select id="selectByac" resultMap="userMap">
+    <resultMap id="managerMap" type="com.p1.entity.Manager">
+        <id column="manager_id" property="managerId"></id>
+        <result column="manager_account" property="managerAc"></result>
+        <result column="manager_password" property="managerPwd"></result>
+    </resultMap>
+
+    <select id="selectManagerByac" resultMap="managerMap">
+        select * from manager where manager_account = #{managerAc}
+
+    </select>
+    <select id="selectUserByac" resultMap="userMap">
          select * from user where account = #{userAccount}
 
 
