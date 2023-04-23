@@ -1,8 +1,10 @@
 package com.p1.service;
 
+import com.p1.entity.Movie;
 import com.p1.entity.ResultVO;
 import com.p1.entity.User;
 import com.p1.entity.UserWant;
+import com.p1.mapper.MovieMapper;
 import com.p1.mapper.UserWantMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,10 +16,16 @@ public class UserWantService {
 
     @Autowired
     private UserWantMapper userWantMapper;
+    @Autowired
+    private  MovieMapper movieMapper;
 
-    public ResultVO saveUW(UserWant userWant,Integer userId) {
-
+    public ResultVO saveUW(UserWant userWant,Integer userId,Integer movieId) {
+        Movie movie = movieMapper.selectById(movieId);
+       // movie.setSocreCount(movie.getSocreCount()+1);
+//电影关注数添加功能有问题
         List<UserWant> userWantList = userWantMapper.selectUWByUserId(userId) ;
+
+
         for(UserWant uw : userWantList){
             if(uw .equals(userWant)){
                 return new ResultVO(1, "重复", null);

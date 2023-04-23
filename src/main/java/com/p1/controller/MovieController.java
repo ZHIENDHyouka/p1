@@ -14,8 +14,8 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    //http://localhost:8083/movie/add
-    @RequestMapping("/add")
+    //http://localhost:8083/movie/addMovie
+    @RequestMapping("/addMovie")
     public ResultVO add(Movie movie) {
         ResultVO resultVO = movieService.addMovie(movie);
         //      成功与否        对象          判断
@@ -23,14 +23,14 @@ public class MovieController {
 
     }
 
-    //http://localhost:8083/movie/list
-    @RequestMapping("/list")
-    public ResultVO list() {
-        ResultVO resultVO = movieService.getMovie();
+    //http://localhost:8083/movie/listOSMovie
+    @RequestMapping("/listOSMovie")
+    public ResultVO listMovie() {
+        ResultVO resultVO = movieService.getMovieOnSale();
         return resultVO;
     }
-    //http://localhost:8083/movie/get
-    @RequestMapping("/get")
+    //http://localhost:8083/movie/getByName
+    @RequestMapping("/getByName")
     public ResultVO get( String movieName) {
         ResultVO resultVO = movieService.getByName(movieName);
         return resultVO;

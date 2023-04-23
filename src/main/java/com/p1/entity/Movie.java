@@ -23,6 +23,7 @@ public class Movie {
     public Integer socreCount;//打分次数
     private String picUrl;//图片地址
     private String actorName;//演员列表
+    private double moviePrice;//演员列表
 
 
 }

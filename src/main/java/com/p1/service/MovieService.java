@@ -26,10 +26,19 @@ public class MovieService {
         }
     }
 
-    public ResultVO getMovie() {
-        List<Movie> movieList = movieMapper.selectMovieList();
-        int count = movieMapper.selectCount();
-        ResultVO resultVO = new ResultVO(0, "查询成功，共" + count + "部电影", movieList);
+    public ResultVO  getMovieOnSale() {
+        List<Movie> movieList = movieMapper.selectMovieOSList();
+        ResultVO resultVO = new ResultVO(0, "查询成功，共" + movieList.size() + "部电影正在热映", movieList);
+        return resultVO;
+    }
+    public ResultVO  getMovieReadySale() {
+        List<Movie> movieList = movieMapper.selectMovieRSList();
+        ResultVO resultVO = new ResultVO(0, "查询成功，共" + movieList.size() + "部电影即将上映", movieList);
+        return resultVO;
+    }
+    public ResultVO  getMovieNotSale() {
+        List<Movie> movieList = movieMapper.selectMovieNSList();
+        ResultVO resultVO = new ResultVO(0, "查询成功，共" + movieList.size() + "部电影已经下架", movieList);
         return resultVO;
     }
 
@@ -52,7 +61,7 @@ public class MovieService {
 
 
     public ResultVO setscore(String movieName,double movieScore){
-
+//有问题
         co++;
         sc+=movieScore;
         movieScore=sc/co;

@@ -16,9 +16,9 @@ public class UserWantController {
 
     //http://localhost:8083/userwant/addUW
     @RequestMapping("/addUW")
-    public ResultVO addUW(UserWant userWant ,Integer userId) {
+    public ResultVO addUW(UserWant userWant ,Integer userId,Integer movieId) {
 
-        return userWantService.saveUW(userWant,userId);
+        return userWantService.saveUW(userWant,userId,movieId);
 
     }
 

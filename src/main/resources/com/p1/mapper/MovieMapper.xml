@@ -19,13 +19,26 @@
         <result column="score_count" property="socreCount"></result>
         <result column="pic_url" property="picUrl"></result>
         <result column="actor_name" property="actorName"></result>
+        <result column="price" property="moviePrice"></result>
+
 
     </resultMap>
 
 
-    <select id="selectMovieList" resultMap="movieMap">
+    <select id="selectMovieOSList" resultMap="movieMap">
         select*
         from movie_info
+        where sale = 1
+    </select>
+    <select id="selectMovieRSList" resultMap="movieMap">
+        select*
+        from movie_info
+        where sale = 0
+    </select>
+    <select id="selectMovieNSList" resultMap="movieMap">
+        select*
+        from movie_info
+        where sale = 2
     </select>
 
     <select id="selectByName" resultMap="movieMap">
@@ -33,6 +46,23 @@
         from movie_info
         where m_name = #{movieName}
     </select>
+    <select id="selectById" resultMap="movieMap">
+        select *
+        from movie_info
+        where m_id = #{movieId}
+    </select>
+<!--    values(
+                   #{movieName},
+                   #{movieLiveDate},
+                   #{movieScore},
+                   #{movieCA},
+                   #{movieDesc},
+                   #{movieType},
+                   #{movieLanguage},
+                   #{movieTime},
+                   #{actorName},
+                   #{moviePrice}
+                   )-->
 
     <insert id="insertMovie">
         insert into movie_info(m_name,
@@ -70,7 +100,8 @@
     </select>
 
     <select id="getAllMovieBaseInfo" resultMap="movieMap">
-        select m_id,m_name,pic_url,live_date from movie_info
+        select m_id, m_name, pic_url, live_date
+        from movie_info
     </select>
     <select id="queryMovieInfoById" resultMap="movieMap">
         select * from movie_info where m_id=#{id}

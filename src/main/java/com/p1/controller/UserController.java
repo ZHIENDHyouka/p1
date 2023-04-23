@@ -16,45 +16,51 @@ public class UserController {
     @Autowired
     private MovieService movieService;
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     //http://localhost:8083/user/add
 
-    public ResultVO add(@RequestBody User user) {
+    public ResultVO addUser(@RequestBody User user) {//注册
         user = StringUtils.formatObjString(user);
         ResultVO resultVO = userSerivce.saveUser(user);
         return resultVO;
     }
 
-    //http://localhost:8083/user/movieList
-    @RequestMapping("/movieList")
-    public ResultVO list() {
-        ResultVO resultVO = movieService.getMovie();
+    //http://localhost:8083/user/movieOSList
+    @RequestMapping("/movieOSList")
+    public ResultVO OSlist() {//查询正在热映电影
+        ResultVO resultVO = movieService.getMovieOnSale();
+        return resultVO;
+    }
+    //http://localhost:8083/user/movieOSList
+    @RequestMapping("/movieRSList")
+    public ResultVO RSlist() {//查询待映推荐
+        ResultVO resultVO = movieService.getMovieReadySale();
         return resultVO;
     }
 
     //http://localhost:8083/user/changeName
     @RequestMapping("/changeName")
-    public ResultVO changeName(int userId, String userName) {
+    public ResultVO changeName(int userId, String userName) {//修改昵称
         ResultVO resultVO = userSerivce.changeUserName(userId, userName);
         return resultVO;
 //http://localhost:8083/user/changePwd
     }
 
-    @RequestMapping("/changePwd")
+    @RequestMapping("/changePwd")//修改密码
     public ResultVO changePwd(int userId, String userPwd) {
         ResultVO resultVO = userSerivce.changeUserPwd(userId, userPwd);
         return resultVO;
 
     }
     //http://localhost:8083/user/self
-    @RequestMapping("/self")
+    @RequestMapping("/self")//查看个人信息
     public ResultVO self(int userId) {
         ResultVO resultVO = userSerivce.getByUserId(userId);
         return resultVO;
 
     }
     //http://localhost:8083/user/plusScore
-    @RequestMapping("/plusScore")
+    @RequestMapping("/plusScore")//打分
     public ResultVO plusScore(String movieName,double movieScore){
         ResultVO resultVO = movieService.setscore(movieName,movieScore);
         return resultVO;

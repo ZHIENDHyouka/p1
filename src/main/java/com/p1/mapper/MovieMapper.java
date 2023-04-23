@@ -10,11 +10,14 @@ import java.util.List;
 public interface MovieMapper {
     public int insertMovie(Movie movie);
 
-    public List<Movie> selectMovieList();
+    public List<Movie> selectMovieOSList();
+    public List<Movie> selectMovieRSList();
+    public List<Movie> selectMovieNSList();
 
     public int selectCount();
 
     public Movie selectByName(String movieName);
+    public Movie selectById(Integer movieId);
    // public int  selectScoreCount(String movieName);
     public int scoring(@Param("movieName") String movieName,@Param("movieScore") double movieScore);
 
