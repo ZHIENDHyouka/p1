@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.p1.mapper.UserMovieScoreInfoMapper">
+    <resultMap id="userMovieScore" type="com.p1.entity.UserMovieScore">
+        <result column="user_id" property="userId"></result>
+        <result column="movie_id" property="movieId"></result>
+        <result column="movie_score" property="movieScore"></result>
+    </resultMap>
+    <update id="updateUserMovieScore">
+        update user_moviescore_info set movie_score=#{userMovieScore.movieScore} where user_id=#{userMovieScore.userId} and movie_id=#{userMovieScore.movieId}
+    </update>
+    <select id="queryUserScoreMovie" resultMap="userMovieScore">
+        select * from user_moviescore_info where user_id=#{userId} and movie_id=#{movieId}
+    </select>
+    <insert id="insertUserMovieScore">
+        insert into user_moviescore_info values (#{userMovieScore.userId},#{userMovieScore.movieId},#{userMovieScore.movieScore})
+    </insert>
+</mapper>
