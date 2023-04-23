@@ -111,6 +111,9 @@
         from movie_info
         where m_id = #{movieId}
     </select>
+    <update id="updateMovieScore">
+        update movie_info set score=#{movieScore},score_count=#{movieCount} where m_id=#{movieId}
+    </update>
 
     <select id="selectScoreCount" resultType="int">
         select score_count

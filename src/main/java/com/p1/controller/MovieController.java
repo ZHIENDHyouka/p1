@@ -2,10 +2,13 @@ package com.p1.controller;
 
 import com.p1.entity.Movie;
 import com.p1.entity.ResultVO;
+import com.p1.entity.UserMovieScore;
 import com.p1.service.MovieService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController//声明 此类为控制器类，可以接受并响应前端请求的类
 @CrossOrigin//允许来自不同服务器的请求
@@ -58,9 +61,31 @@ public class MovieController {
      * @return
      */
     @GetMapping("/getMovieInfoById")
-    public ResultVO getMovieInfoById(@Param("id") int id){
+    public ResultVO getMovieInfoById(@Param("id") int id) {
         ResultVO movieInfo = movieService.getMovieInfoById(id);
         return movieInfo;
+    }
+
+    /**
+     * 用户对电影评分
+     * @param userMovieScore
+     * @return
+     */
+    @PostMapping("/userMovieScore")
+    public ResultVO userMovieScore(@RequestBody UserMovieScore userMovieScore){
+        ResultVO resultVO = movieService.userMovieScore(userMovieScore);
+        return resultVO;
+    }
+
+    /**
+     * 获取当前用户对电影评分
+     * @param userMovieScore
+     * @return
+     */
+    @PostMapping("/getUserMovieScore")
+    public ResultVO getUserMovieScore(@RequestBody UserMovieScore userMovieScore){
+        ResultVO result = movieService.getUserMovieScore(userMovieScore);
+        return result;
     }
 
 }

@@ -5,8 +5,9 @@ import com.p1.entity.UserWant;
 import com.p1.service.UserWantService;
 import com.sun.xml.internal.org.jvnet.mimepull.MIMEConfig;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController
 @RequestMapping("/userwant")
@@ -15,7 +16,7 @@ public class UserWantController {
     private UserWantService userWantService;
 
     //http://localhost:8083/userwant/addUW
-    @RequestMapping("/addUW")
+    @RequestMapping(value = "/addUW")
     public ResultVO addUW(UserWant userWant ,Integer userId,Integer movieId) {
 
         return userWantService.saveUW(userWant,userId,movieId);
@@ -31,10 +32,21 @@ public class UserWantController {
     }
 
     //http://localhost:8083/userwant/delUW
-    @RequestMapping("/delUW")
-    public ResultVO delUW(int userId, int movieId) {
+//    @RequestMapping("/delUW")
+//    public ResultVO delUW(int userId, int movieId) {
+//        return userWantService.removeUW(userId, movieId);
+//    }
 
-        return userWantService.removeUW(userId, movieId);
-
+    @PostMapping("/queryConcernMovie")
+    public ResultVO queryConcernMovie(@RequestBody UserWant userWant){
+        ResultVO resultVO = userWantService.queryConcernMovie(userWant);
+        return resultVO;
     }
+
+    @PostMapping("/updateUserMovieConcern")
+    public ResultVO updateUserMovieConcern(@RequestBody Map<String,Object>data){
+        ResultVO resultVO = userWantService.updateUserMovieConcern(data);
+        return resultVO;
+    }
+
 }

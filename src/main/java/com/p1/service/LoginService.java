@@ -32,7 +32,7 @@ public class LoginService {
             //对输入密码进行加密
             userPwd = Md5Utils.getMd5(userPwd);
             if (userPwd.equals(pwd)) {
-                return new ResultVO(0, "登陆成功", null);
+                return new ResultVO(0, "登陆成功", user.getUserId());
             } else {
                 return new ResultVO(1, "密码错误", null);
             }

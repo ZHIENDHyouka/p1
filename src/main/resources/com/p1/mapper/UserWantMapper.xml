@@ -9,10 +9,8 @@
     </resultMap>
 
     <insert id="insertUW">
-        insert into userwant(id,
-                             m_id)
-        values (#{userId},
-                #{movieId})
+        insert into userwant(id,m_id)
+        values (#{userId},#{movieId})
     </insert>
 
     <select id="selectUW" resultMap="userwantMap">

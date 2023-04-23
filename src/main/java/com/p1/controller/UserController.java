@@ -59,13 +59,5 @@ public class UserController {
         return resultVO;
 
     }
-    //http://localhost:8083/user/plusScore
-    @RequestMapping("/plusScore")//打分
-    public ResultVO plusScore(String movieName,double movieScore){
-        ResultVO resultVO = movieService.setscore(movieName,movieScore);
-        return resultVO;
-
-    }
-
 
 }

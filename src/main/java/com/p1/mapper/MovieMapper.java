@@ -11,13 +11,17 @@ public interface MovieMapper {
     public int insertMovie(Movie movie);
 
     public List<Movie> selectMovieOSList();
+
     public List<Movie> selectMovieRSList();
+
     public List<Movie> selectMovieNSList();
 
     public int selectCount();
 
     public Movie selectByName(String movieName);
+
     public Movie selectById(Integer movieId);
+
    // public int  selectScoreCount(String movieName);
     public int scoring(@Param("movieName") String movieName,@Param("movieScore") double movieScore);
     public int upCA(Integer movieId);
@@ -25,6 +29,9 @@ public interface MovieMapper {
     public void NotSale(Integer movieId);
     public int selectSale(Integer movieId);
     List<Movie> getAllMovieBaseInfo();
+
     Movie queryMovieInfoById(@Param("id") Integer id);
+
+    int updateMovieScore(@Param("movieScore") Double movieScore,@Param("movieCount") Integer movieCount,@Param("movieId") Integer movieId);
 
 }
