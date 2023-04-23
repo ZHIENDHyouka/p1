@@ -31,5 +31,24 @@ public class ManagerController {
         return resultVO;
     }
 
+    //http://localhost:8083/manager/movieOnSale
+
+    @RequestMapping("/movieOnSale")
+
+    public  ResultVO OnSale(Integer movieId){
+        ResultVO resultVO =movieService.setOnSale(movieId);
+        return resultVO;
+
+    }
+    //http://localhost:8083/manager/movieNotSale
+
+    @RequestMapping("/movieNotSale")
+
+    public  ResultVO NotSale(Integer movieId){
+        ResultVO resultVO =movieService.setNotSale(movieId);
+        return resultVO;
+
+    }
+
 
 }

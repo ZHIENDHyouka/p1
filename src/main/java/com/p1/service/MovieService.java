@@ -93,6 +93,26 @@ public class MovieService {
         }
         return new ResultVO(1, "id为空", null);
     }
+    public ResultVO setOnSale(Integer movieId){
+        if (movieMapper.selectSale(movieId)!=1){
+            movieMapper.OnSale(movieId);
+            return new ResultVO(0,"成功",null);
+        }else {
+            return new ResultVO(1,"已经上架",null);
+        }
+
+
+    }
+    public ResultVO setNotSale(Integer movieId){
+        if (movieMapper.selectSale(movieId)!=2){
+            movieMapper.NotSale(movieId);
+            return new ResultVO(0,"成功",null);
+        }else {
+            return new ResultVO(1,"已经下架",null);
+        }
+
+
+    }
 
 }
 

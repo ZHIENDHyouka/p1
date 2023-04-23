@@ -20,7 +20,10 @@ public interface MovieMapper {
     public Movie selectById(Integer movieId);
    // public int  selectScoreCount(String movieName);
     public int scoring(@Param("movieName") String movieName,@Param("movieScore") double movieScore);
-
+    public int upCA(Integer movieId);
+    public void OnSale(Integer movieId);
+    public void NotSale(Integer movieId);
+    public int selectSale(Integer movieId);
     List<Movie> getAllMovieBaseInfo();
     Movie queryMovieInfoById(@Param("id") Integer id);
 

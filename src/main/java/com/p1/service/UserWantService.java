@@ -20,9 +20,9 @@ public class UserWantService {
     private  MovieMapper movieMapper;
 
     public ResultVO saveUW(UserWant userWant,Integer userId,Integer movieId) {
-        Movie movie = movieMapper.selectById(movieId);
-       // movie.setSocreCount(movie.getSocreCount()+1);
-//电影关注数添加功能有问题
+
+
+
         List<UserWant> userWantList = userWantMapper.selectUWByUserId(userId) ;
 
 
@@ -33,7 +33,7 @@ public class UserWantService {
         }
         userWantMapper.insertUW(userWant);
         try {
-
+            movieMapper.upCA(movieId);
             return new ResultVO(0, "成功", null);
         } catch (Exception e) {
             return new ResultVO(1, "失败", null);

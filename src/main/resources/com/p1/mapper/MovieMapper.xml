@@ -51,18 +51,18 @@
         from movie_info
         where m_id = #{movieId}
     </select>
-<!--    values(
-                   #{movieName},
-                   #{movieLiveDate},
-                   #{movieScore},
-                   #{movieCA},
-                   #{movieDesc},
-                   #{movieType},
-                   #{movieLanguage},
-                   #{movieTime},
-                   #{actorName},
-                   #{moviePrice}
-                   )-->
+    <!--    values(
+                       #{movieName},
+                       #{movieLiveDate},
+                       #{movieScore},
+                       #{movieCA},
+                       #{movieDesc},
+                       #{movieType},
+                       #{movieLanguage},
+                       #{movieTime},
+                       #{actorName},
+                       #{moviePrice}
+                       )-->
 
     <insert id="insertMovie">
         insert into movie_info(m_name,
@@ -91,6 +91,26 @@
         set score=#{movieScore}
         where m_name = #{movieName}
     </update>
+    <update id="upCA">
+        update movie_info
+        set concern_amount = concern_amount + 1
+        where m_id = #{movieId}
+    </update>
+    <update id="OnSale">
+        update movie_info
+        set sale=1
+        where m_id = #{movieId}
+    </update>
+    <update id="NotSale">
+        update movie_info
+        set sale=2
+        where m_id = #{movieId}
+    </update>
+    <select id="selectSale" resultType="int">
+        select sale
+        from movie_info
+        where m_id = #{movieId}
+    </select>
 
     <select id="selectScoreCount" resultType="int">
         select score_count
@@ -104,7 +124,9 @@
         from movie_info
     </select>
     <select id="queryMovieInfoById" resultMap="movieMap">
-        select * from movie_info where m_id=#{id}
+        select *
+        from movie_info
+        where m_id = #{id}
     </select>
 
 
