@@ -23,22 +23,18 @@
     <select id="selectUWById" resultMap="userwantMap">
         select *
         from userwant
-        where (id = #{userId},
-               m_id = #{movieId})
+        where (id = #{userId} and  m_id = #{movieId})
     </select>
 
 
     <delete id="deleteUW">
         delete
         from userwant
-        where (id = #{userId},
-               m_id = #{movieId})
+        where (id = #{userId} and m_id = #{movieId})
     </delete>
 
-    <select id="selectCount" resultType="int">
-        select count(1)
-        from userwant
-        where id = #{userId}
+    <select id="selectCount" resultType="integer"  resultMap="userwantMap">
+        select count(1) from userwant where id=#{userId} ;
     </select>
 
     <select id="selectUWByUserId" resultMap="userwantMap">

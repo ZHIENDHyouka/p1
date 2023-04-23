@@ -54,7 +54,7 @@
         from user;
     </select>
 
-    <select id="selectCount" resultType="int">
+    <select id="selectCount" resultType="integer">
         select count(1)
         from user
     </select>

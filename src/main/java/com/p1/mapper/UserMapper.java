@@ -18,5 +18,5 @@ public interface UserMapper {
 
     public List<User> selectAllUser();
 
-    public int selectCount();
+    public Integer selectCount();
 }

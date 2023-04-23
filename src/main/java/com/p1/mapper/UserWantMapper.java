@@ -9,11 +9,11 @@ import java.util.List;
 public interface UserWantMapper {
     public int insertUW(UserWant userWant);
 
-    public List<UserWant> selectUW(Integer userId);
+   // public List<UserWant> selectUW(Integer userId);
 
     public int deleteUW(Integer userId, int movieId);
 
-    public int selectCount();
+    public Integer selectCount();
 
     public UserWant selectUWById(Integer userId, int movieId);
 

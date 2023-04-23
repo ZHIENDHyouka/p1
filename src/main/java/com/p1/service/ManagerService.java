@@ -24,8 +24,8 @@ public class ManagerService {
 
     public ResultVO getAllUser() {
         List<User> userList = userMapper.selectAllUser();
-        int count = userMapper.selectCount();
-        ResultVO resultVO = new ResultVO(0, "查询成功，共" + count + "位用户", userList);
+        //  int count = userMapper.selectCount();
+        ResultVO resultVO = new ResultVO(0, "查询成功，共" + userList.size() + "位用户", userList);
         return resultVO;
     }
 

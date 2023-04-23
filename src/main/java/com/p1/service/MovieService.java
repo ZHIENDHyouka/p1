@@ -52,6 +52,7 @@ public class MovieService {
 
 
     public ResultVO setscore(String movieName,double movieScore){
+
         co++;
         sc+=movieScore;
         movieScore=sc/co;

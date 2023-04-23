@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 public class UserWantService {
-    int  count =0;
+
     @Autowired
     private UserWantMapper userWantMapper;
 
@@ -25,7 +25,7 @@ public class UserWantService {
         }
         userWantMapper.insertUW(userWant);
         try {
-            count++;
+
             return new ResultVO(0, "成功", null);
         } catch (Exception e) {
             return new ResultVO(1, "失败", null);
@@ -34,8 +34,9 @@ public class UserWantService {
     }
 
     public ResultVO searchUW(Integer userId) {
-        List<UserWant> userWantList = userWantMapper.selectUW(userId);
-        ResultVO resultVO = new ResultVO(0, "查询成功，共" + count + "个关注", userWantList);
+        List<UserWant> userWantList = userWantMapper.selectUWByUserId(userId);
+       // Integer count = userWantMapper.selectCount();
+        ResultVO resultVO = new ResultVO(0, "查询成功，共" + userWantList.size() + "个关注", userWantList);
         return resultVO;
 
 
@@ -43,10 +44,16 @@ public class UserWantService {
 
     public ResultVO removeUW(int userId, int movieId) {
         try {
-            userWantMapper.deleteUW(userId, movieId);
-            return new ResultVO(0, "成功", null);
+            if(userWantMapper.selectUWById(userId,movieId)!=null){
+                userWantMapper.deleteUW(userId, movieId);
+                return new ResultVO(0, "成功", null);
+            }else {
+                return new ResultVO(1, "重复", null);
+            }
+
         } catch (Exception e) {
             return new ResultVO(1, "失败", null);
+
         }
     }
 }
