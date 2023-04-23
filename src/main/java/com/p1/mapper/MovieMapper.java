@@ -19,5 +19,6 @@ public interface MovieMapper {
     public int scoring(@Param("movieName") String movieName,@Param("movieScore") double movieScore);
 
     List<Movie> getAllMovieBaseInfo();
+    Movie queryMovieInfoById(@Param("id") Integer id);
 
 }

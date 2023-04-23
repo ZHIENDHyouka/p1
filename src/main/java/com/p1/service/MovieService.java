@@ -76,5 +76,14 @@ public class MovieService {
         return new ResultVO(0,"获取数据成功",movies);
     }
 
+    public ResultVO getMovieInfoById(Integer id){
+        if (id!=null) {
+            Movie movie = movieMapper.queryMovieInfoById(id);
+            if (movie==null) return new ResultVO(1,"数据为null",movie);
+            else  return new ResultVO(0,"数据获取成功",movie);
+        }
+        return new ResultVO(1, "id为空", null);
+    }
+
 }
 

@@ -72,6 +72,9 @@
     <select id="getAllMovieBaseInfo" resultMap="movieMap">
         select m_id,m_name,pic_url,live_date from movie_info
     </select>
+    <select id="queryMovieInfoById" resultMap="movieMap">
+        select * from movie_info where m_id=#{id}
+    </select>
 
 
 </mapper>
