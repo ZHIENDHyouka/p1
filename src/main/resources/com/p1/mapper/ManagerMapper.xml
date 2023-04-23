@@ -8,8 +8,10 @@
         <id column="manager_id" property="managerId"></id>
         <result column="manager_account" property="managerAc"></result>
         <result column="manager_password" property="managerPwd"></result>
-
     </resultMap>
 
+    <select id="selectByac" resultMap="managerMap">
+        select * from manager where manager_account = #{managerAc}
 
+    </select>
 </mapper>

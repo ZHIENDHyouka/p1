@@ -3,11 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.p1.mapper.TestMapper">
+    <resultMap id="movieMap" type="com.p1.entity.Movie">
+        <id column="m_id" property="movieId"></id>
+        <result column="m_name" property="movieName"></result>
+        <result column="live_date" property="movieLiveDate"></result>
+        <result column="score" property="movieScore"></result>
+        <result column="concern_amount" property="movieCA"></result>
+        <result column="description" property="movieDesc"></result>
+        <result column="m_type" property="movieType"></result>
+        <result column="language" property="movieLanguage"></result>
+        <result column="m_time" property="movieTime"></result>
+        <result column="sale" property="movieOnSale"></result>
+<!--        <result column="score_count" property="movieSC"></result>-->
+        <result column="pic_url" property="picUrl"></result>
+        <result column="actor_name" property="actorName"></result>
+    </resultMap>
     <insert id="insertMovieInfo">
-
+        insert into movie_info(m_name,live_date,score,concern_amount,description,m_type,language,m_time,sale,score_count,pic_url,actor_name)
+        values (#{movie.movieName},#{movie.movieLiveDate},#{movie.movieScore},#{movie.movieCA},#{movie.movieDesc},#{movie.movieType},#{movie.movieLanguage},#{movie.movieTime},#{movie.movieOnSale},#{movie.movieSC},#{movie.picUrl},#{movie.actorName});
     </insert>
 
     <select id="queryMovie250Info" resultType="java.util.Map">
         select * from movie250
     </select>
+
 </mapper>

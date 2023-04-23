@@ -18,4 +18,6 @@ public interface MovieMapper {
    // public int  selectScoreCount(String movieName);
     public int scoring(@Param("movieName") String movieName,@Param("movieScore") double movieScore);
 
+    List<Movie> getAllMovieBaseInfo();
+
 }

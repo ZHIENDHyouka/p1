@@ -24,8 +24,6 @@ public class MovieService {
         } catch (Exception e) {
             return new ResultVO(1, "添加电影失败", null);
         }
-
-
     }
 
     public ResultVO getMovie() {
@@ -70,9 +68,12 @@ public class MovieService {
        }else {
            return new ResultVO(1,"失败",null);
       }
-
-
-
     }
+
+    public ResultVO getAllMovieBaseInfo(){
+        List<Movie> movies = movieMapper.getAllMovieBaseInfo();
+        return new ResultVO(0,"获取数据成功",movies);
+    }
+
 }
 

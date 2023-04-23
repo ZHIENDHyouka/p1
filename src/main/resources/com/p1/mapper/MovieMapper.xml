@@ -16,7 +16,9 @@
         <result column="language" property="movieLanguage"></result>
         <result column="m_time" property="movieTime"></result>
         <result column="sale" property="movieOnSale"></result>
-<!--        <result column="score_count" property="movieSC"></result>-->
+        <result column="score_count" property="socreCount"></result>
+        <result column="pic_url" property="picUrl"></result>
+        <result column="actor_name" property="actorName"></result>
 
     </resultMap>
 
@@ -65,6 +67,10 @@
         from movie_info
         where m_name = #{movieName}
 
+    </select>
+
+    <select id="getAllMovieBaseInfo" resultMap="movieMap">
+        select m_id,m_name,pic_url,live_date from movie_info
     </select>
 
 
