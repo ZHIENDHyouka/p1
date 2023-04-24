@@ -2,6 +2,7 @@ package com.p1.controller;
 
 import com.p1.entity.Movie;
 import com.p1.entity.ResultVO;
+import com.p1.entity.Schedule;
 import com.p1.service.ManagerService;
 import com.p1.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,15 @@ public class ManagerController {
 
     public  ResultVO NotSale(Integer movieId){
         ResultVO resultVO =movieService.setNotSale(movieId);
+        return resultVO;
+
+    }
+    //http://localhost:8083/manager/addSchedule
+
+    @RequestMapping("/addSchedule")
+
+    public  ResultVO addSchedule(Schedule schedule,Integer movieId,Integer hallId,String date){
+        ResultVO resultVO =managerService.saveSchedule(schedule ,movieId,hallId,date);
         return resultVO;
 
     }

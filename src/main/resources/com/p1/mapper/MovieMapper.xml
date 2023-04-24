@@ -21,9 +21,12 @@
         <result column="actor_name" property="actorName"></result>
         <result column="price" property="moviePrice"></result>
 
-
     </resultMap>
-
+    <select id="selectMovieTime"  resultType="int">
+        select m_time
+        from movie_info
+        where m_id = #{movieId}
+    </select>
 
     <select id="selectMovieOSList" resultMap="movieMap">
         select*

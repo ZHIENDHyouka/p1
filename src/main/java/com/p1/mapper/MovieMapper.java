@@ -28,6 +28,7 @@ public interface MovieMapper {
     public void OnSale(Integer movieId);
     public void NotSale(Integer movieId);
     public int selectSale(Integer movieId);
+    public int selectMovieTime(int  movieId);
     List<Movie> getAllMovieBaseInfo();
 
     Movie queryMovieInfoById(@Param("id") Integer id);

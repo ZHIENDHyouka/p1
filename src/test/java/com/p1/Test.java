@@ -73,4 +73,12 @@ public class Test {
             }
         }
     }
+
+    @org.junit.Test
+    public  void  test01(){
+        String startTime ="14:00";
+        int fen= Integer.parseInt(startTime.substring(3));
+        System.out.println(fen);
+
+    }
 }

@@ -99,6 +99,10 @@ public class MovieService {
 
 
     }
+//    public ResultVO getMovieTime(Integer movieId){
+//        int time = movieMapper.selectMovieTime(movieId);
+//        return new ResultVO(0,"获取数据成功",time);
+//    }
 
     public ResultVO userMovieScore(UserMovieScore data) {
         UserMovieScore userMovieScore = userMovieScoreInfoMapper.queryUserScoreMovie(data.getUserId(), data.getMovieId());

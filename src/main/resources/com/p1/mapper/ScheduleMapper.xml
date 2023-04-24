@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.p1.mapper.ScheduleMapper">
+    <resultMap id="ScheduleMap" type="com.p1.entity.Schedule">
+        <id column="sd_id" property="scheduleId"></id>
+        <result column="movie_id" property="movieId"></result>
+        <result column="hall_id" property="hallId"></result>
+        <result column="price" property="price"></result>
+        <result column="start_time" property="startTime"></result>
+        <result column="end_time" property="endTime"></result>
+        <result column="date" property="date"></result>
+        <result column="movie_name" property="movieName"></result>
+    </resultMap>
+    <insert id="insertSchedule">
+        insert into schedule(movie_id,
+                             hall_id,
+                             price,
+                             start_time,
+                             end_time,
+                             date,
+                             movie_name)
+        values (#{movieId},
+                #{hallId},
+                #{price},
+                #{startTime},
+                #{endTime},
+                #{date},
+                #{movieName})
+    </insert>
+    <select id="selectBy" resultMap="ScheduleMap">
+select *
+from schedule
+where hall_id=#{hallId} and date=#{date}
+
+    </select>
+
+</mapper>
