@@ -9,8 +9,10 @@ import com.p1.mapper.UserMovieScoreInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.ObjectName;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -79,22 +81,24 @@ public class MovieService {
         }
         return new ResultVO(1, "id为空", null);
     }
-    public ResultVO setOnSale(Integer movieId){
-        if (movieMapper.selectSale(movieId)!=1){
+
+    public ResultVO setOnSale(Integer movieId) {
+        if (movieMapper.selectSale(movieId) != 1) {
             movieMapper.OnSale(movieId);
-            return new ResultVO(0,"成功",null);
-        }else {
-            return new ResultVO(1,"已经上架",null);
+            return new ResultVO(0, "成功", null);
+        } else {
+            return new ResultVO(1, "已经上架", null);
         }
 
 
     }
-    public ResultVO setNotSale(Integer movieId){
-        if (movieMapper.selectSale(movieId)!=2){
+
+    public ResultVO setNotSale(Integer movieId) {
+        if (movieMapper.selectSale(movieId) != 2) {
             movieMapper.NotSale(movieId);
-            return new ResultVO(0,"成功",null);
-        }else {
-            return new ResultVO(1,"已经下架",null);
+            return new ResultVO(0, "成功", null);
+        } else {
+            return new ResultVO(1, "已经下架", null);
         }
 
 
@@ -129,9 +133,23 @@ public class MovieService {
 
     public ResultVO getUserMovieScore(UserMovieScore userMovieScore) {
         UserMovieScore result = userMovieScoreInfoMapper.queryUserScoreMovie(userMovieScore.getUserId(), userMovieScore.getMovieId());
-        if (result!=null) return new ResultVO(0, "", result.getMovieScore());
+        if (result != null) return new ResultVO(0, "", result.getMovieScore());
         else return new ResultVO(1, "", null);
 
+    }
+
+    public ResultVO getScreenMovieBaseInfo() {
+        List<Movie> movies = movieMapper.queryAllMovieIsSale();//查询所有热映和即将上映电影
+        List<Movie> nowMovieList = new ArrayList<>();//热映电影
+        ArrayList<Movie> futureMovieList = new ArrayList<>(); //即将上映电影
+        for (Movie m : movies) {
+            if (m.getMovieOnSale() == 1) nowMovieList.add(m);
+            else if (m.getMovieOnSale() == 0) futureMovieList.add(m);
+        }
+        HashMap<String, Object> resultMap = new HashMap<>();
+        resultMap.put("nowMovieList", nowMovieList);
+        resultMap.put("futureMovieList", futureMovieList);
+        return new ResultVO(0, "数据获取成功", resultMap);
     }
 
 }

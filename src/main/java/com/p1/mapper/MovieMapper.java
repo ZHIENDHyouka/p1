@@ -35,4 +35,5 @@ public interface MovieMapper {
 
     int updateMovieScore(@Param("movieScore") Double movieScore,@Param("movieCount") Integer movieCount,@Param("movieId") Integer movieId);
 
+    List<Movie> queryAllMovieIsSale();
 }

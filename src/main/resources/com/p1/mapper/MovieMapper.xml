@@ -134,6 +134,10 @@
         from movie_info
         where m_id = #{id}
     </select>
+    <select id="queryAllMovieIsSale" resultMap="movieMap">
+        select m_id, m_name, pic_url, live_date,sale
+        from movie_info where sale=1 or sale=0
+    </select>
 
 
 </mapper>

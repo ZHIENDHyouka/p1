@@ -88,4 +88,14 @@ public class MovieController {
         return result;
     }
 
+    /**
+     * 查询所有热映和即将上映电影
+     * @return
+     */
+    @GetMapping("/getScreenMovieBaseInfo")
+    public ResultVO getScreenMovieBaseInfo(){
+        ResultVO screenMovieBaseInfo = movieService.getScreenMovieBaseInfo();
+        return screenMovieBaseInfo;
+    }
+
 }
